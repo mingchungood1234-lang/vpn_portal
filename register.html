@@ -16,7 +16,7 @@
       <div class="login">
          <img src="assets/img/login-bg.png" alt="image" class="login__bg">
 
-         <form action="" class="login__form">
+         <form action="" class="login__form" onsubmit="register(event)">
             <h1 class="login__title">Register</h1>
 
             <div class="login__inputs">
@@ -30,12 +30,12 @@
                   <i class="ri-lock-2-fill"></i>
                </div>
                 <div class="login__box">
-                  <input id="Password" type="password" placeholder="Confirm Password" required class="login__input">
+                  <input id="confirm-password" type="password" placeholder="Confirm Password" required class="login__input">
                   <i class="ri-lock-2-fill"></i>
                </div>
             </div>
 
-            <button onclick="register()" class="login__button">Register</button>
+            <button type="submit" class="login__button">Register</button>
          </form>
       </div>
 

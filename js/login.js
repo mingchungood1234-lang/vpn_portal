@@ -1,15 +1,40 @@
-async function login() {
+const API_BASE_URL = 'http://localhost:3000/api/auth';
 
-    const username =
-        document.getElementById('username').value;
+async function readJsonResponse(response) {
+    const text = await response.text();
 
-    const password =
-        document.getElementById('password').value;
+    if (!text) {
+        return {};
+    }
 
     try {
+        return JSON.parse(text);
+    } catch (error) {
+        return {
+            message: 'Server returned an invalid response'
+        };
+    }
+}
+
+async function login(event) {
+    event?.preventDefault();
+
+    const submitButton = event?.submitter;
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value;
+
+    if (!username || !password) {
+        alert('Please enter your username and password');
+        return;
+    }
+
+    try {
+        if (submitButton) {
+            submitButton.disabled = true;
+        }
 
         const response = await fetch(
-            'http://localhost:3000/api/auth/login',
+            `${API_BASE_URL}/login`,
             {
                 method: 'POST',
 
@@ -24,25 +49,31 @@ async function login() {
             }
         );
 
-        const data = await response.json();
+        const data = await readJsonResponse(response);
 
-        console.log(data);
+        if (response.ok && data.token) {
+            const role = data.user?.role || 'user';
 
-        if (data.token) {
-
+            // Save JWT token
             localStorage.setItem(
                 'token',
                 data.token
             );
+            localStorage.setItem(
+                'role',
+                role
+            );
 
-            alert('Login success');
-            // redirect user
-            window.location.href =
-                'dashboard.html';
+            // Redirect by role
+            if (role === 'admin') {
+                window.location.href = 'admin_dashboard.html';
+            } else {
+                window.location.href = 'dashboard.html';
+            }
 
         } else {
 
-            alert(data.message);
+            alert(data.message || 'Login failed');
 
         }
 
@@ -51,6 +82,11 @@ async function login() {
         console.log(error);
 
         alert('Backend connection failed');
+
+    } finally {
+        if (submitButton) {
+            submitButton.disabled = false;
+        }
 
     }
 

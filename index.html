@@ -16,7 +16,7 @@
       <div class="login">
          <img src="assets/img/login-bg.png" alt="image" class="login__bg">
 
-         <form action="" class="login__form">
+         <form action="" class="login__form" onsubmit="login(event)">
             <h1 class="login__title">Login</h1>
 
             <div class="login__inputs">
@@ -40,7 +40,7 @@
                <a href="#" class="login__forgot">Forgot Password?</a>
             </div>
 
-            <button onclick="login()" class="login__button">Login</button>
+            <button type="submit" class="login__button">Login</button>
 
             <div class="login__register">
                Don't have an account? <a href="register.html">Register</a>
