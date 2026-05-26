@@ -10,7 +10,7 @@
       <!--=============== CSS ===============-->
       <link rel="stylesheet" href="assets/css/styles.css">
 
-      <title>Login form - Bedimcode</title>
+      <title>WG vpn portal</title>
    </head>
    <body>
       <div class="login">
@@ -21,12 +21,12 @@
 
             <div class="login__inputs">
                <div class="login__box">
-                  <input type="email" placeholder="Email ID" required class="login__input">
+                  <input id="username" type="text" placeholder=" ID" required class="login__input">
                   <i class="ri-mail-fill"></i>
                </div>
 
                <div class="login__box">
-                  <input type="password" placeholder="Password" required class="login__input">
+                  <input id="password" type="password" placeholder="Password" required class="login__input">
                   <i class="ri-lock-2-fill"></i>
                </div>
             </div>
@@ -40,12 +40,14 @@
                <a href="#" class="login__forgot">Forgot Password?</a>
             </div>
 
-            <button type="submit" class="login__button">Login</button>
+            <button onclick="login()" class="login__button">Login</button>
 
             <div class="login__register">
-               Don't have an account? <a href="#">Register</a>
+               Don't have an account? <a href="register.html">Register</a>
             </div>
          </form>
       </div>
+
+       <script src="js/login.js"></script>
    </body>
 </html>
