@@ -182,3 +182,281 @@ img {
     margin-bottom: 2rem;
   }
 }
+
+/*=============== DASHBOARD ===============*/
+.dashboard-page {
+  min-height: 100vh;
+  background: #f4f7fb;
+  color: #172033;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem clamp(1rem, 4vw, 3rem);
+  background: #ffffff;
+  border-bottom: 1px solid #d9e2ef;
+}
+
+.app-header h1,
+.dashboard-panel h2 {
+  line-height: 1.2;
+}
+
+.eyebrow {
+  color: #4f6f95;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.dashboard-shell {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 1.5rem auto 3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.dashboard-panel,
+.stat-card,
+.vpn-item {
+  background: #ffffff;
+  border: 1px solid #d9e2ef;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(23, 32, 51, .06);
+}
+
+.dashboard-panel {
+  padding: 1.25rem;
+}
+
+.request-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.panel-heading,
+.vpn-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.inline-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: .75rem;
+}
+
+.field {
+  display: grid;
+  gap: .35rem;
+  color: #40546d;
+  font-size: .875rem;
+  font-weight: 500;
+}
+
+.field input {
+  min-height: 2.75rem;
+  border: 1px solid #cbd7e6;
+  border-radius: 6px;
+  padding: 0 .85rem;
+  background: #ffffff;
+  color: #172033;
+}
+
+.primary-button,
+.ghost-button {
+  min-height: 2.75rem;
+  border-radius: 6px;
+  padding: 0 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary-button {
+  border: 1px solid #1f6feb;
+  background: #1f6feb;
+  color: #ffffff;
+}
+
+.ghost-button {
+  border: 1px solid #cbd7e6;
+  background: #ffffff;
+  color: #23415f;
+}
+
+.primary-button:disabled {
+  cursor: wait;
+  opacity: .65;
+}
+
+.status-message,
+.muted {
+  color: #5e7088;
+}
+
+.vpn-list {
+  display: grid;
+  gap: .75rem;
+}
+
+.vpn-item {
+  padding: 1rem;
+}
+
+.vpn-item h3 {
+  font-size: 1rem;
+}
+
+.vpn-item p {
+  color: #5e7088;
+  margin-top: .25rem;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.8rem;
+  border-radius: 999px;
+  padding: 0 .7rem;
+  font-size: .8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-pending {
+  background: #fff7df;
+  color: #7a5600;
+}
+
+.status-active {
+  background: #e3f8ec;
+  color: #126336;
+}
+
+.status-failed {
+  background: #ffe8e6;
+  color: #9f241c;
+}
+
+.config-output {
+  width: 100%;
+  min-height: 240px;
+  resize: vertical;
+  border: 1px solid #cbd7e6;
+  border-radius: 6px;
+  padding: .85rem;
+  background: #101828;
+  color: #eaf1ff;
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: .875rem;
+  line-height: 1.5;
+}
+
+.qr-block {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #d9e2ef;
+  border-radius: 8px;
+  background: #f8fbff;
+}
+
+.qr-block img {
+  width: 180px;
+  height: 180px;
+  border: 8px solid #ffffff;
+  border-radius: 6px;
+}
+
+.qr-block p {
+  color: #40546d;
+  font-weight: 500;
+}
+
+.error-text {
+  color: #9f241c;
+}
+
+.empty-state,
+.empty-table {
+  padding: 1.25rem;
+  color: #5e7088;
+  text-align: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  padding: 1rem;
+}
+
+.stat-card span {
+  display: block;
+  color: #1f6feb;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.stat-card p {
+  margin-top: .5rem;
+  color: #5e7088;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.data-table th,
+.data-table td {
+  padding: .85rem;
+  border-bottom: 1px solid #e5ecf5;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.data-table th {
+  color: #40546d;
+  font-size: .8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 760px) {
+  .app-header,
+  .panel-heading,
+  .vpn-item__header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .inline-form,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .qr-block {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

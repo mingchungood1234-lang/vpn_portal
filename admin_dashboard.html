@@ -4,19 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
-    <h1>Admin Dashboard</h1>
+<body class="dashboard-page">
+    <header class="app-header">
+        <div>
+            <p class="eyebrow">VPN Portal</p>
+            <h1>Admin Dashboard</h1>
+        </div>
 
-    <script>
-        const token = localStorage.getItem('token');
-        const role = localStorage.getItem('role');
+        <button class="ghost-button" type="button" onclick="logout()">Logout</button>
+    </header>
 
-        if (!token) {
-            window.location.href = 'index.html';
-        } else if (role !== 'admin') {
-            window.location.href = 'dashboard.html';
-        }
-    </script>
+    <main class="dashboard-shell">
+        <section class="stats-grid">
+            <article class="stat-card">
+                <span id="total-count">0</span>
+                <p>Total requests</p>
+            </article>
+            <article class="stat-card">
+                <span id="active-count">0</span>
+                <p>Used IPs</p>
+            </article>
+            <article class="stat-card">
+                <span id="pending-count">0</span>
+                <p>Pending</p>
+            </article>
+            <article class="stat-card">
+                <span id="failed-count">0</span>
+                <p>Failed</p>
+            </article>
+        </section>
+
+        <section class="dashboard-panel">
+            <div class="panel-heading">
+                <div>
+                    <p class="eyebrow">Client Monitor</p>
+                    <h2>VPN IP usage</h2>
+                </div>
+
+                <button class="ghost-button" type="button" onclick="loadClients()">Refresh</button>
+            </div>
+
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Client</th>
+                            <th>Status</th>
+                            <th>Assigned IP</th>
+                            <th>Created</th>
+                            <th>Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody id="client-table"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/api-config.js"></script>
+    <script src="js/admin-dashboard.js"></script>
 </body>
 </html>

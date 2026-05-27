@@ -1,21 +1,3 @@
-const API_BASE_URL = 'http://localhost:3000/api/auth';
-
-async function readJsonResponse(response) {
-    const text = await response.text();
-
-    if (!text) {
-        return {};
-    }
-
-    try {
-        return JSON.parse(text);
-    } catch (error) {
-        return {
-            message: 'Server returned an invalid response'
-        };
-    }
-}
-
 async function register(event) {
     event?.preventDefault();
 
@@ -39,8 +21,9 @@ async function register(event) {
             submitButton.disabled = true;
         }
 
+        const apiBaseUrl = await getAuthApiBaseUrl();
         const response = await fetch(
-            `${API_BASE_URL}/register`,
+            `${apiBaseUrl}/register`,
             {
                 method: 'POST',
 

@@ -3,20 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
-    <h1>User Dashboard</h1>
+<body class="dashboard-page">
+    <header class="app-header">
+        <div>
+            <p class="eyebrow">VPN Portal</p>
+            <h1>User Dashboard</h1>
+        </div>
 
-    <script>
-        const token = localStorage.getItem('token');
-        const role = localStorage.getItem('role');
+        <button class="ghost-button" type="button" onclick="logout()">Logout</button>
+    </header>
 
-        if (!token) {
-            window.location.href = 'index.html';
-        } else if (role === 'admin') {
-            window.location.href = 'admin_dashboard.html';
-        }
-    </script>
+    <main class="dashboard-shell">
+        <section class="dashboard-panel request-panel">
+            <div>
+                <p class="eyebrow">VPN Access</p>
+                <h2>Request a client IP</h2>
+            </div>
+
+            <form class="inline-form" onsubmit="requestVpn(event)">
+                <label class="field">
+                    <span>Client name</span>
+                    <input id="client-name" type="text" placeholder="my-laptop" maxlength="80">
+                </label>
+
+                <button id="request-button" class="primary-button" type="submit">Add VPN IP</button>
+            </form>
+
+            <p id="request-message" class="status-message"></p>
+        </section>
+
+        <section class="dashboard-panel">
+            <div class="panel-heading">
+                <div>
+                    <p class="eyebrow">Current Config</p>
+                    <h2>Your WireGuard profile</h2>
+                </div>
+
+                <button class="ghost-button" type="button" onclick="loadVpnRequests()">Refresh</button>
+            </div>
+
+            <div id="vpn-list" class="vpn-list"></div>
+        </section>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/api-config.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 </html>
