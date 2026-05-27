@@ -15,7 +15,7 @@ Before uploading, edit `js/config.js`:
 
 ```js
 window.APP_CONFIG = {
-    API_BASE_URL: 'https://your-home-server-domain.com/api'
+    API_BASE_URL: 'https://vpn.mingchun.us.ci/api'
 };
 ```
 
@@ -38,8 +38,8 @@ DB_USER=vpnuser
 DB_PASSWORD=your-db-password
 DB_NAME=vpnportal
 JWT_SECRET=replace-with-a-long-secret
-PUBLIC_API_BASE_URL=https://your-home-server-domain.com/api
-CORS_ORIGIN=https://your-github-username.github.io
+PUBLIC_API_BASE_URL=https://vpn.mingchun.us.ci/api
+CORS_ORIGIN=https://mingchungood1234-lang.github.io
 WG_AGENT_TOKEN=replace-with-a-long-agent-secret
 ```
 
