@@ -1,3 +1,3 @@
 window.APP_CONFIG = {
-    API_BASE_URL: 'https://vpn-b75.mingchun.us.ci/api'
+    API_BASE_URL: 'https://vpn.mingchun.us.ci/api'
 };
